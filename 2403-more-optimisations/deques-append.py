@@ -7,19 +7,21 @@ numbers_populated = [*range(1000)]
 t0 = min(
     repeat(
         """
-for i in range(10):
+for i in range(1000000):
     numbers.append(i)
 """,
         globals={"numbers": numbers.copy()},
+        number=50,
     )
 )
 t1 = min(
     repeat(
         """
-for i in range(10):
+for i in range(1000000):
     numbers.append(i)
 """,
         globals={"numbers": deque(numbers)},
+        number=50,
     )
 )
 
